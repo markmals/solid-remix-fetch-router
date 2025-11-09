@@ -21,9 +21,8 @@ export default defineConfig({
             },
             output: {
                 entryFileNames: chunkInfo => {
-                    return chunkInfo.name === "entry.worker"
-                        ? "entry.worker.js"
-                        : "[name]-[hash].js";
+                    console.log(chunkInfo);
+                    return chunkInfo.name === "worker" ? "entry.worker.js" : "[name]-[hash].js";
                 },
             },
         },

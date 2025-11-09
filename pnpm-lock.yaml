@@ -11,12 +11,12 @@ importers:
 
   .:
     dependencies:
-      '@remix-run/events':
-        specifier: jam
-        version: 0.0.0-experimental-remix-jam.5
       '@remix-run/fetch-router':
         specifier: ^0.8.0
         version: 0.8.0(@remix-run/form-data-parser@0.12.0)(@remix-run/headers@0.14.0)(@remix-run/html-template@0.2.0)(@remix-run/route-pattern@0.14.0)
+      '@remix-run/interaction':
+        specifier: ^0.1.0
+        version: 0.1.0
       '@remix-run/route-pattern':
         specifier: ^0.14.0
         version: 0.14.0
@@ -462,9 +462,6 @@ packages:
     resolution: {integrity: sha512-UGXe+g/rSRbglL0FOJiar+a+nUrst7KaFmsg05wYbKiInGWP6eAj/f8A2Uobgo5KxEtb2X10zeflNH6RK2xeIQ==}
     engines: {node: '>=14'}
 
-  '@remix-run/events@0.0.0-experimental-remix-jam.5':
-    resolution: {integrity: sha512-rbKP27/YkLZq0gbCy3QpwaHQzJg41IgbC//8SggPgMtWxZdxkcnkWmQGMLH0xwQcBlZ3yLtZRDQvL+ir4GAA6g==}
-
   '@remix-run/fetch-router@0.8.0':
     resolution: {integrity: sha512-ugvauNoGxZBGw5F+3IcohAbrZ6dMM8VdWVgi12UVeHg2843IjkKtGv2dHCkHPMZvydJZQlYWDGd/NRxDSChG3w==}
     peerDependencies:
@@ -481,6 +478,9 @@ packages:
 
   '@remix-run/html-template@0.2.0':
     resolution: {integrity: sha512-CwmFgbUroD2082lK6ALHCryqOxrn3FtMf7uf554fN8Zq5H9aDafPYWpEZ01GvpaKuPVlWwyojhqcs1nOOgLwpA==}
+
+  '@remix-run/interaction@0.1.0':
+    resolution: {integrity: sha512-5AoVEKPad9+ss/HqjaDEKNjG1uFp9FFdHaaCtxLz5Yw0+xdiJF+ur7r6D1TAUFIVNZToD1WyHurVRD3sjUZBbw==}
 
   '@remix-run/multipart-parser@0.12.0':
     resolution: {integrity: sha512-u/o4lKmIy/KuZGuQYMGhmr+BN7VKAt3G0ny8a1SBVlBXIBAtTOmDiI2WMZtyAv0VPbaIpT3OBTrRrKIfdDAE6w==}
@@ -1372,8 +1372,6 @@ snapshots:
     dependencies:
       oxc-parser: 0.74.0
 
-  '@remix-run/events@0.0.0-experimental-remix-jam.5': {}
-
   '@remix-run/fetch-router@0.8.0(@remix-run/form-data-parser@0.12.0)(@remix-run/headers@0.14.0)(@remix-run/html-template@0.2.0)(@remix-run/route-pattern@0.14.0)':
     dependencies:
       '@remix-run/form-data-parser': 0.12.0
@@ -1388,6 +1386,8 @@ snapshots:
   '@remix-run/headers@0.14.0': {}
 
   '@remix-run/html-template@0.2.0': {}
+
+  '@remix-run/interaction@0.1.0': {}
 
   '@remix-run/multipart-parser@0.12.0':
     dependencies:

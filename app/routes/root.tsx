@@ -1,26 +1,28 @@
-import { useIsRouting, useNavigate } from "@solidjs/router";
 import { ParentProps, Suspense } from "solid-js";
+import { useIsRouting, useNavigate } from "@solidjs/router";
+import { Link, Title } from "@solidjs/meta";
+import { on } from "@remix-run/interaction";
+
 import { createContact } from "~/data/actions.ts";
 import { SearchBar } from "~/components/SearchBar.tsx";
 import { Sidebar } from "~/components/Sidebar.tsx";
-import { events } from "@remix-run/events";
-import { doc } from "~/lib/targets.ts";
-import { Link, Title } from "@solidjs/meta";
 
-import styles from "../index.css?url";
+import styles from "~/index.css?url";
 
 export default function Root(props: ParentProps) {
     const isRouting = useIsRouting();
     const navigate = useNavigate();
 
-    events(document, [
-        doc.submit<HTMLFormElement>(event => {
+    on(document, {
+        submit(event) {
+            if (!(event.target instanceof HTMLFormElement)) return;
             if (event.target.method.toUpperCase() === "POST") return;
             if (event.defaultPrevented) return;
+
             event.preventDefault();
             navigate(new URL(event.target.action).pathname);
-        }),
-    ]);
+        },
+    });
 
     return (
         <>

@@ -1,11 +1,15 @@
-import { events } from "@remix-run/events";
-import { worker } from "~/lib/targets.ts";
+import { on, TypedEventTarget } from "@remix-run/interaction";
 import { router } from "~/worker/router";
 
-declare const self: ServiceWorkerGlobalScope;
+declare const self: ServiceWorkerGlobalScope & TypedEventTarget<ServiceWorkerGlobalScopeEventMap>;
 
-events(self, [
-    worker.global.fetch(event => {
+self.skipWaiting();
+
+on(self, {
+    activate() {
+        self.clients.claim();
+    },
+    fetch(event) {
         const url = new URL(event.request.url);
         const sameOrigin = url.origin === location.origin;
         const maybeApi = url.pathname.startsWith("/api/");
@@ -14,5 +18,5 @@ events(self, [
         if (!sameOrigin || !maybeApi) return;
 
         event.respondWith(router.fetch(event.request));
-    }),
-]);
+    },
+});

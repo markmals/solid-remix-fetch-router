@@ -4,7 +4,7 @@ import { api } from "~/defs/api";
 import { Favorite } from "~/components/Favorite.tsx";
 import { destroyContact } from "~/data/actions.ts";
 import { showContact } from "~/data/queries.ts";
-import { routes } from "~/defs/ui.ts";
+import { app } from "~/defs/app";
 import { Title } from "@solidjs/meta";
 
 export default function ShowContact() {
@@ -61,7 +61,7 @@ export default function ShowContact() {
 
                             <div>
                                 <form
-                                    action={routes.contact.edit.href({
+                                    action={app.contact.edit.href({
                                         contactId: c().id,
                                     })}
                                     method="get"

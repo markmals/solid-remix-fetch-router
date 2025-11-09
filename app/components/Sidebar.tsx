@@ -2,7 +2,7 @@ import { A, createAsync, useIsRouting, useLocation } from "@solidjs/router";
 import { createSignal, For, Show } from "solid-js";
 import { listContacts } from "~/data/queries.ts";
 import { ContactRecord } from "~/data/contacts";
-import { routes } from "~/defs/ui";
+import { app } from "~/defs/app";
 
 const [pendingHref, setPendingHref] = createSignal<string>("");
 
@@ -24,7 +24,7 @@ function SidebarItem(props: { contact: ContactRecord }) {
     const location = useLocation();
 
     const link = () =>
-        routes.contact.show.href({
+        app.contact.show.href({
             contactId: String(props.contact.id),
         }) + location.search;
 

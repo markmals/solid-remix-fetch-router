@@ -9,7 +9,7 @@ import {
     createEmptyContact,
 } from "~/data/contacts.ts";
 import { api } from "~/defs/api.ts";
-import { routes } from "~/defs/ui.ts";
+import { app } from "~/defs/app.ts";
 import { clientRedirect, methodOverride } from "./middleware.ts";
 import { json, redirect } from "@remix-run/fetch-router/response-helpers";
 
@@ -31,7 +31,7 @@ router.map(api, {
         show: async ({ params }) => json(await getContact(params.contactId)),
         destroy: async ({ params }) => {
             await deleteContact(params.contactId);
-            return redirect(routes.index.href());
+            return redirect(app.index.href());
         },
         update: async ({ params, formData }) => {
             const contact = await updateContact(params.contactId, {
@@ -41,11 +41,11 @@ router.map(api, {
                 avatar: formData.get("avatar") as string,
                 notes: formData.get("notes") as string,
             });
-            return redirect(routes.contact.show.href({ contactId: contact.id }));
+            return redirect(app.contact.show.href({ contactId: contact.id }));
         },
         create: async () => {
             await createEmptyContact();
-            return redirect(routes.index.href());
+            return redirect(app.index.href());
         },
         favorite: async ({ params, formData, url }) => {
             await updateContact(params.contactId, {

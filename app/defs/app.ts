@@ -1,6 +1,6 @@
 import { createRoutes } from "@remix-run/fetch-router";
 
-export const routes = createRoutes({
+export const app = createRoutes({
     root: "/",
     index: "/",
     contact: {

@@ -1,5 +1,5 @@
 import { useIsRouting, useLocation, useSearchParams } from "@solidjs/router";
-import { routes } from "~/defs/ui";
+import { app } from "~/defs/app";
 
 export function SearchBar() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -9,7 +9,7 @@ export function SearchBar() {
     const isSearching = () => isRouting() && query();
 
     return (
-        <form action={routes.index.href()} id="search-form" method="get">
+        <form action={app.index.href()} id="search-form" method="get">
             <input
                 aria-label="Search contacts"
                 class={isSearching() ? "loading" : undefined}

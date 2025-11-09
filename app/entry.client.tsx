@@ -5,7 +5,7 @@ import { Router } from "@solidjs/router";
 import { MetaProvider } from "@solidjs/meta";
 import "solid-devtools";
 
-import { defs } from "./defs/routes.ts";
+import { components } from "./defs/components.ts";
 
 if (!navigator.serviceWorker.controller) {
     await navigator.serviceWorker.register(
@@ -17,7 +17,7 @@ if (!navigator.serviceWorker.controller) {
     render(
         () => (
             <MetaProvider>
-                <Router>{defs}</Router>
+                <Router>{components}</Router>
             </MetaProvider>
         ),
         document.body,

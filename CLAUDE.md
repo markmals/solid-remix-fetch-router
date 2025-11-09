@@ -1,0 +1,1 @@
+/Users/orion/Developer/Playgrounds/solid-remix-fetch-router/AGENTS.md

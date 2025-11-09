@@ -3,9 +3,10 @@ import { router } from "~/worker/router";
 
 declare const self: ServiceWorkerGlobalScope & TypedEventTarget<ServiceWorkerGlobalScopeEventMap>;
 
-self.skipWaiting();
-
 on(self, {
+    install() {
+        self.skipWaiting();
+    },
     activate() {
         self.clients.claim();
     },

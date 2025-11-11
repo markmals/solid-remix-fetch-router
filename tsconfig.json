@@ -25,6 +25,7 @@
         "noImplicitOverride": true,
         "noFallthroughCasesInSwitch": true,
         "useUnknownInCatchVariables": true,
+        "verbatimModuleSyntax": true,
 
         "paths": {
             "~/*": ["./app/*"]

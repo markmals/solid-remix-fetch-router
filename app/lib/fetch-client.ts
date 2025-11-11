@@ -1,5 +1,5 @@
-import { RequestMethod, Route } from "@remix-run/fetch-router";
-import { HrefBuilderArgs } from "@remix-run/route-pattern";
+import { type RequestMethod, Route } from "@remix-run/fetch-router";
+import type { HrefBuilderArgs } from "@remix-run/route-pattern";
 import type { RequiredParams } from "../../node_modules/@remix-run/route-pattern/dist/lib/params.d.ts";
 import { redirect } from "@solidjs/router";
 import { REDIRECT_KEY } from "~/lib/middleware.ts";

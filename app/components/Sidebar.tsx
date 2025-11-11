@@ -1,7 +1,7 @@
 import { A, useIsRouting, useLocation } from "@solidjs/router";
 import { createSignal, For, Show } from "solid-js";
 import { queries } from "~/data/queries.ts";
-import { ContactRecord } from "~/worker/contacts";
+import type { ContactRecord } from "~/worker/contacts";
 import { app } from "~/app";
 import { createAsync } from "~/lib/create-async.ts";
 

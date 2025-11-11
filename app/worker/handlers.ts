@@ -1,4 +1,4 @@
-import { RouteHandlers } from "@remix-run/fetch-router";
+import type { RouteHandlers } from "@remix-run/fetch-router";
 import {
     getContacts,
     getContact,

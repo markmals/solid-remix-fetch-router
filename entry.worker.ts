@@ -2,7 +2,7 @@ import { createRouter } from "@remix-run/fetch-router";
 import { formData } from "@remix-run/fetch-router/form-data-middleware";
 import { logger } from "@remix-run/fetch-router/logger-middleware";
 import { methodOverride } from "@remix-run/fetch-router/method-override-middleware";
-import { on, TypedEventTarget } from "@remix-run/interaction";
+import { on, type TypedEventTarget } from "@remix-run/interaction";
 import { api } from "~/api";
 import { clientRedirect } from "~/lib/middleware.ts";
 import { handlers } from "~/worker/handlers.ts";

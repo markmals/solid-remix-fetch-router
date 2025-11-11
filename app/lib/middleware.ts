@@ -1,4 +1,4 @@
-import { Middleware } from "@remix-run/fetch-router";
+import type { Middleware } from "@remix-run/fetch-router";
 import { methodOverride as _methodOverride } from "@remix-run/fetch-router/method-override-middleware";
 
 export const METHOD_KEY = "_method";

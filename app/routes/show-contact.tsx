@@ -1,5 +1,5 @@
 import { useParams } from "@solidjs/router";
-import { JSX, Show } from "solid-js";
+import { type JSX, Show } from "solid-js";
 import { Favorite } from "~/components/Favorite.tsx";
 import { actions } from "~/data/actions.ts";
 import { queries } from "~/data/queries.ts";

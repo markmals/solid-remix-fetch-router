@@ -1,4 +1,4 @@
-import { ParentProps, Suspense } from "solid-js";
+import { type ParentProps, Suspense } from "solid-js";
 import { useIsRouting } from "@solidjs/router";
 import { Link, Title } from "@solidjs/meta";
 

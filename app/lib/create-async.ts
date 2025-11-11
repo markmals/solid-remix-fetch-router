@@ -1,5 +1,5 @@
 import { createAsync as _createAsync } from "@solidjs/router";
-import { Accessor } from "solid-js";
+import type { Accessor } from "solid-js";
 
 const NO_OP = Symbol("noop-proxy");
 

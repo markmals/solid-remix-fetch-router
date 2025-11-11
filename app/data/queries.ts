@@ -1,6 +1,6 @@
 import { query } from "@solidjs/router";
 import { api } from "~/api";
-import { ContactRecord } from "~/worker/contacts";
+import type { ContactRecord } from "~/worker/contacts";
 import { createClient } from "~/lib/fetch-client.ts";
 
 export const client = createClient(api);

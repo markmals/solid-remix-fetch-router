@@ -6,13 +6,13 @@ export function SearchBar() {
     const query = () => searchParams.q as string | undefined;
 
     const isRouting = useIsRouting();
-    const isSearching = () => isRouting() && query();
+    const isSearching = () => Boolean(isRouting() && query());
 
     return (
         <form action={app.index.href()} id="search-form" method="get">
             <input
                 aria-label="Search contacts"
-                class={isSearching() ? "loading" : undefined}
+                classList={{ loading: isSearching() }}
                 value={query() ?? ""}
                 id="q"
                 name="q"

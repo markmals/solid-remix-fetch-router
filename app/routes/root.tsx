@@ -30,7 +30,7 @@ export default function Root(props: ParentProps) {
                     </div>
                     <Sidebar />
                 </div>
-                <div class={isRouting() ? "loading" : undefined} id="detail">
+                <div classList={{ loading: isRouting() }} id="detail">
                     {props.children}
                 </div>
             </Suspense>

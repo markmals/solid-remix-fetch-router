@@ -5,21 +5,23 @@ import { Router } from "@solidjs/router";
 import { MetaProvider } from "@solidjs/meta";
 import "solid-devtools";
 
-import { components } from "./defs/components.ts";
+import { routes } from "./routes.ts";
+import { WorkerRegistry } from "./lib/worker-registry.ts";
+import { on } from "@remix-run/interaction";
 
-if (!navigator.serviceWorker.controller) {
-    await navigator.serviceWorker.register(
-        import.meta.env.DEV ? "/entry.worker.ts" : "/entry.worker.js",
-        { type: "module" },
-    );
-    window.location.reload();
-} else {
-    render(
-        () => (
-            <MetaProvider>
-                <Router>{components}</Router>
-            </MetaProvider>
-        ),
-        document.body,
-    );
-}
+const registry = new WorkerRegistry();
+
+on(registry, {
+    registered() {
+        render(
+            () => (
+                <MetaProvider>
+                    <Router>{routes}</Router>
+                </MetaProvider>
+            ),
+            document.body,
+        );
+    },
+});
+
+await registry.register();

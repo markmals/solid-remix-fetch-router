@@ -1,28 +1,16 @@
-import { createRouter } from "@remix-run/fetch-router";
-import { formData } from "@remix-run/fetch-router/form-data-middleware";
-import { logger } from "@remix-run/fetch-router/logger-middleware";
+import { RouteHandlers } from "@remix-run/fetch-router";
 import {
     getContacts,
     getContact,
     deleteContact,
     updateContact,
     createEmptyContact,
-} from "~/data/contacts.ts";
-import { api } from "~/defs/api.ts";
-import { app } from "~/defs/app.ts";
-import { clientRedirect, methodOverride } from "./middleware.ts";
+} from "./contacts";
+import { api } from "~/api";
+import { app } from "~/app";
 import { json, redirect } from "@remix-run/fetch-router/response-helpers";
 
-export const router = createRouter({
-    middleware: [
-        formData(),
-        methodOverride(),
-        clientRedirect(),
-        ...(import.meta.env.DEV ? [logger()] : []),
-    ],
-});
-
-router.map(api, {
+export const handlers = {
     contact: {
         list: async ({ url }) => {
             const query = url.searchParams.get("q");
@@ -54,4 +42,4 @@ router.map(api, {
             return new Response(null);
         },
     },
-});
+} satisfies RouteHandlers<typeof api>;

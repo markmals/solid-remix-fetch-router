@@ -1,7 +1,9 @@
-import { api } from "~/defs/api";
+import { api } from "~/api";
 import { formAction } from "~/lib/form-action.ts";
 
-export const createContact = formAction(api.contact.create);
-export const updateContact = formAction(api.contact.update);
-export const favoriteContact = formAction(api.contact.favorite);
-export const destroyContact = formAction(api.contact.destroy);
+export const actions = {
+    create: formAction(api.contact.create),
+    update: formAction(api.contact.update),
+    favorite: formAction(api.contact.favorite),
+    destroy: formAction(api.contact.destroy),
+};

@@ -2,9 +2,9 @@ import { resources, createRoutes } from "@remix-run/fetch-router";
 
 export const api = createRoutes("/api", {
     contact: {
-        list: { method: "GET", pattern: "/contact" },
         ...resources("/contact", {
-            only: ["show", "destroy", "update", "create"],
+            only: ["index", "show", "destroy", "update", "create"],
+            names: { index: "list" },
             param: "contactId",
         }),
         favorite: { method: "PUT", pattern: "/contact/:contactId/favorite" },

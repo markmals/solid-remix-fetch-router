@@ -1,20 +1,23 @@
-import { A, createAsync, useIsRouting, useLocation } from "@solidjs/router";
+import { A, useIsRouting, useLocation } from "@solidjs/router";
 import { createSignal, For, Show } from "solid-js";
-import { listContacts } from "~/data/queries.ts";
-import { ContactRecord } from "~/data/contacts";
-import { app } from "~/defs/app";
+import { queries } from "~/data/queries.ts";
+import { ContactRecord } from "~/worker/contacts";
+import { app } from "~/app";
+import { createAsync } from "~/lib/create-async.ts";
 
 const [pendingHref, setPendingHref] = createSignal<string>("");
 
 export function Sidebar() {
     const location = useLocation();
-    const contacts = createAsync(() => listContacts(location.query.q as string));
+    const contacts = createAsync(() => queries.list(location.query.q as string));
 
     return (
         <nav>
-            <For each={contacts()} fallback={<i>No contacts</i>}>
-                {contact => <SidebarItem contact={contact} />}
-            </For>
+            <ul>
+                <For each={contacts()} fallback={<i>No contacts</i>}>
+                    {contact => <SidebarItem contact={contact} />}
+                </For>
+            </ul>
         </nav>
     );
 }

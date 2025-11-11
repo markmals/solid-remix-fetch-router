@@ -14,7 +14,13 @@ run = ["vite dev"]
 
 [tasks.build]
 description = "Build the app"
-sources = ["pnpm-lock.yaml", "vite.config.ts", "tsconfig.json", "app/**/*.{ts,tsx,css}"]
+# sources = [
+#     "pnpm-lock.yaml",
+#     "vite.config.ts",
+#     "tsconfig.json",
+#     "entry.worker.ts",
+#     "app/**/*.{ts,tsx,css}",
+# ]
 outputs = ["dist"]
 run = "vite build"
 

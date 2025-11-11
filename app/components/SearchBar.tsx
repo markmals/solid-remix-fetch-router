@@ -1,5 +1,5 @@
-import { useIsRouting, useLocation, useSearchParams } from "@solidjs/router";
-import { app } from "~/defs/app";
+import { useIsRouting, useSearchParams } from "@solidjs/router";
+import { app } from "~/app";
 
 export function SearchBar() {
     const [searchParams, setSearchParams] = useSearchParams();

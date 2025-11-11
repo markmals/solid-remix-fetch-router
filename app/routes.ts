@@ -1,12 +1,12 @@
 import { lazy } from "solid-js";
 import type { RouteDefinition } from "@solidjs/router";
-import { listContacts, showContact } from "~/data/queries.ts";
-import { app } from "./app.ts";
+import { queries } from "~/data/queries.ts";
+import { app } from "~/app.ts";
 
-export const components: RouteDefinition[] = [
+export const routes: RouteDefinition[] = [
     {
         path: app.root.pattern.toString(),
-        preload: ({ location }) => listContacts(location.query.q as string),
+        preload: ({ location }) => queries.list(location.query.q as string),
         component: lazy(() => import("~/routes/root.tsx")),
         children: [
             {
@@ -15,12 +15,12 @@ export const components: RouteDefinition[] = [
             },
             {
                 path: app.contact.show.pattern.toString(),
-                preload: ({ params }) => showContact(params.contactId),
+                preload: ({ params }) => queries.show(params.contactId),
                 component: lazy(() => import("~/routes/show-contact.tsx")),
             },
             {
                 path: app.contact.edit.pattern.toString(),
-                preload: ({ params }) => showContact(params.contactId),
+                preload: ({ params }) => queries.show(params.contactId),
                 component: lazy(() => import("~/routes/edit-contact.tsx")),
             },
         ],

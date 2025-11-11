@@ -4,7 +4,7 @@ import type { Action } from "@solidjs/router";
 import { action } from "@solidjs/router";
 
 import { createClient } from "./fetch-client.ts";
-import { METHOD_KEY } from "~/worker/middleware.ts";
+import { METHOD_KEY } from "~/lib/middleware.ts";
 
 export type FormMethod = Exclude<RequestMethod, "GET">;
 
